@@ -1,0 +1,19 @@
+{{/* Requires "layouts/shortcodes/audio.html" */}}
+{{/* Source: https://gitlab.com/Roneo/hugo-shortcode-roneo-audio-player */}}
+
+{{- if not .src }}
+  {{- errorf "Missing required 'src'." -}}
+{{- end }}
+
+{{- $src := .src -}}
+{{- $class := .class | default "default" -}}
+{{- $caption := .caption -}}
+
+<div class="container">
+  <audio controls class="player {{ with $class }}{{ . }}{{ end }}" >
+    {{ with .Get "ogg" }}<source src="{{ . }}" type="audio/ogg">{{ end }}
+    {{ with .Get "mp3" }}<source src="{{ . }}" type="audio/mpeg">{{ end }}
+    {{ with .Get "wav" }}<source src="{{ . }}" type="audio/wav">{{ end }}
+    Your browser does not support the audio element.
+  </audio>
+</div>

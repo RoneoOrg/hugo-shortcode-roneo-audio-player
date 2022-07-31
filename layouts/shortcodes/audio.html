@@ -1,0 +1,20 @@
+{{/* Requires "layouts/partials/audio.html" */}}
+{{/* Source: https://gitlab.com/Roneo/hugo-shortcode-roneo-audio-player */}}
+
+{{- $src := "" -}}
+{{- $class := "" -}}
+{{- $caption := "" -}}
+{{- if .IsNamedParams }}
+{{- $src = .Get "src" -}}
+{{- $class = .Get "class" -}}
+{{- $caption = .Get "caption" -}}
+{{- else }}
+{{- $src = .Get 0 -}}
+{{- $class = .Get 1 -}}
+{{- $caption = .Get 2 -}}
+{{- end }}
+{{- if not $src }}
+{{- errorf "Missing required 'src'." -}}
+{{- end }}
+{{/* Calls "layouts/partials/audio.html" */}}
+{{- partial "audio" (dict "Site" $.Site "Page" . "src" $src "class" $class "caption" $caption) -}}
