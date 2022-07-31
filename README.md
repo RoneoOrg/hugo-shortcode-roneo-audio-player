@@ -2,14 +2,13 @@
 
 ## Objective
 
-This Hugo Theme Component allows to easily **insert audio players**
+This Hugo Theme Component allows to easily **insert audio players from local and remote files**
 
-Both a [Shortcode](https://gohugo.io/content-management/shortcodes/) and a [Partial Template](https://gohugo.io/templates/partials/) are provided.
 
 ## Usage
 
 ```
-{{< audio src="/audiofilename.mp3" class="custom-class" >}}
+{{<audio src="https://archive.org/download/test/aufiofile.mp3" >}}
 ```
 
 ## Installation
@@ -21,6 +20,7 @@ Requires **Hugo > 0.42**
 Edit `config.toml`
 
     theme = ["hugo-shortcode-roneo-audio-player", "YourCurrentTheme"]
+    enableInlineShortcodes = true
 
 To learn more about "Theme components", see [the Hugo documentation](https://gohugo.io/hugo-modules/theme-components/)
 
@@ -36,25 +36,20 @@ with the following Shortcode
 with a custom CSS class
 
 ```go
-{{< audio src="/audiofilename.mp3" class="custom-class" >}}
+{{< audio src="/audiofilename.mp3" class="custom-class" caption="A custom comment" >}}
 ```
 
-### Call from a template
-
-```go
-{{ partial "audio.html" (dict "context" . "pages" $.Site.Pages "/audiofilename.mp3" "custom-class" ) }}
-```
 
 
 ## Contribute
 
-Please star this repo [on Github](https://github.com/RoneoOrg/hugo-shortcode-roneo-button-icon-badge) or [Gitlab](https://gitlab.com/Roneo/hugo-shortcode-roneo-button-icon-badge), to help this project gain some visibility and reach new contributors.
+Please star this repo to help this project gain some visibility and reach new contributors.
 
-Code contributions are welcome, and the main place for development is [this Gitlab repo](https://gitlab.com/Roneo/hugo-shortcode-roneo-button-icon-badge). Feel free to use [this Github repo](https://github.com/RoneoOrg/hugo-shortcode-roneo-button-icon-badge).
+Code contributions are welcome, and the main place for development is [this Gitlab repo](https://gitlab.com/Roneo/hugo-shortcode-roneo-audio-player).
 
 ## References
 
-- Inspired by the [Button Shortcode](https://github.com/marketempower/axiom/blob/master/layouts/shortcodes/button.html) from the [Axiom Theme](https://www.axiomtheme.com/docs/shortcodes/#button)
+- https://www.johnarroyo.com/2021/02/adding-audio-to-hugo/
 - [Hugo documentation about Theme Components](https://gohugo.io/hugo-modules/theme-components/)
 - Hugo documentation about [Shortcodes](https://gohugo.io/content-management/shortcodes/)
 - Hugo documentation about [Partial Templates](https://gohugo.io/templates/partials/).
