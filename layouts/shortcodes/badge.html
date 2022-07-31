@@ -1,0 +1,29 @@
+{{/* Requires "layouts/partials/button.html" */}}
+{{/* Source: https://gitlab.com/Roneo/hugo-shortcode-roneo-button-icon-badge */}}
+
+{{- $text := "" -}}
+{{- $theme := "" -}}
+{{- $icon := "" -}}
+{{- $class := "" -}}
+{{- $href := "" -}}
+{{- $id := "" -}}
+{{- if .IsNamedParams }}
+{{- $text = .Get "text" -}}
+{{- $theme = .Get "theme" -}}
+{{- $icon = .Get "icon" -}}
+{{- $class = .Get "class" -}}
+{{- $href = .Get "href" -}}
+{{- $id = .Get "id" -}}
+{{- else }}
+{{- $text = .Get 0 -}}
+{{- $theme = .Get 1 -}}
+{{- $icon = .Get 2 -}}
+{{- $class = .Get 3 -}}
+{{- $href = .Get 4 -}}
+{{- $id = .Get 5 -}}
+{{- end }}
+{{- if not $text }}
+{{- errorf "Missing required 'text'. Shortcode: 'badge'." -}}
+{{- end }}
+{{/* Calls "layouts/partials/badge.html" */}}
+{{- partial "badge" (dict "Site" $.Site "Page" . "text" $text "theme" $theme "icon" $icon "class" $class  "href" $href "id" $id) -}}
