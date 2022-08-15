@@ -4,6 +4,6 @@
   <audio controls class="player" preload="{{ .Get "preload" | default "metadata" }}">
     {{ with .Get "src" }}<source src="{{ . | relURL }}" type="audio/mpeg">{{ end }}
   </audio>
-  {{/*  <a href="{{ .Get "src"  }}" class="button small roneo" download><i class="icon fas fa-download"></i></a>  */}}
+  {{/*  <a href="{{ .Get "src"  }}" class="button small" download><i class="icon fas fa-download"></i></a>  */}}
   {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
 </figure>
